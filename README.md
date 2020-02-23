@@ -7,7 +7,7 @@ export interface Book{
     bookPubYear:number
 }
 
-lab4.html
+lab4.html--
 <table class="table-striped" border="4">
     <tr>
       <th>Book ID</th>
