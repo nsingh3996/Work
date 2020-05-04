@@ -1,0 +1,40 @@
+.transfer{
+    padding-top: 30px;
+    margin-top: 20px;
+    padding:40px;
+}
+h4{
+    padding-bottom: 10px;
+}
+
+.goodhead{
+	height:auto;
+	min-height:100vh;
+	background-size:cover;
+	background-position:center;
+}
+
+.Header1 h4{
+    color: maroon;
+    font-weight: bolder;
+    padding: 30px;
+    padding-left: 150px;
+}
+.moneyTransfer h1{
+    padding-top: 30px;
+    margin-top: 20px;
+}
+#signup{
+    display: none;
+}
+.transfer a{
+    float: right;
+    margin-right: 10px;
+    font-weight: bolder;
+}
+.transfer form{
+    margin-top: 40px;
+}
+.transfer h6{
+    text-align: center;
+}

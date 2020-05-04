@@ -1,0 +1,58 @@
+<div class="Header1 goodhead" style="background-image: url(./assets/updateImage.jpg);">
+  <h4><img src="./assets/wallet.jpg" width="100" height="100"/> Update Details</h4>
+ <div class="container">
+  <div class="col-md-9 subBar border border-success rounded shadow p-4 mb-4 bg-white">
+    <form #updateForm="ngForm" (ngSubmit)="updateDetails()">
+      <div class="form-group row">
+        <div class="col-md-3"><label class="form-label">Name:</label></div>
+        <div class="col-md-6">
+        <input type="text" name="name" [(ngModel)]="customer.customerName" class="form-control" required pattern="^[A-Z][a-z]+([\ A-Za-z]+)*" [class.is-invalid]="name.invalid && name.touched" #name="ngModel">
+        <div *ngIf="name.errors && (name.invalid && name.touched)">
+          <small class="text-danger" *ngIf="name.errors.required">Name is mandatory.</small><br/>
+          <small class="text-danger" *ngIf="name.errors.pattern">Only Alphabets allowed.<br/>First letter of the name should be Uppercase.</small>
+        </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-3"><label class="form-label">Phone Number:</label></div>
+        <div class="col-md-6"><input type="text" name="phoneNo" [(ngModel)]="customer.phoneNo" class="form-control" required pattern="^[1-9]{1}[0-9]{9}$" [class.is-invalid]="phone2.invalid && phone2.touched" #phone="ngModel"></div>
+        <div *ngIf="phone.errors && (phone.invalid && phone.touched)">
+          <small class="text-danger" *ngIf="phone.errors.required">Phone No. is mandatory.</small><br/>
+          <small class="text-danger" *ngIf="phone.errors.pattern">Phone No. should be of exactly ten digits and first no. should not be 0.</small>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-3"><label class="form-label">Aadhar Number:</label></div>
+        <div class="col-md-6"><input type="text" name="aadharNumber" [(ngModel)]="customer.aadharNumber" class="form-control" required minlength="12" maxlength="12" pattern="^[1-9][0-9]*" [class.is-invalid]="aadhar2.invalid && aadhar2.touched" #aadhar="ngModel"></div>
+        <div *ngIf="aadhar.errors && (aadhar.invalid && aadhar.touched)">
+          <small class="text-danger" *ngIf="aadhar.errors.required">Aadhar Number is mandatory.</small><br/>
+          <small class="text-danger" *ngIf="aadhar.errors.minlength">Invalid Aadhar Number. Aadhar Number should be 12 digit.</small><br/>
+          <small class="text-danger" *ngIf="aadhar.errors.pattern">Invalid Aadhar Number. Aadhar number should only contain numbers and should not start with 0.</small>
+          </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-3"><label class="form-label">Pan Number:</label></div>
+        <div class="col-md-6"><input type="text" name="panNumber" [(ngModel)]="customer.panNumber" class="form-control" required pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" [class.is-invalid]="pan2.invalid && pan2.touched" #pan="ngModel"></div>
+        <div *ngIf="pan.errors && (pan.invalid && pan.touched)">
+          <small class="text-danger" *ngIf="pan.errors.required">Pan No. is mandatory.</small><br/>
+          <small class="text-danger" *ngIf="pan.errors.pattern">Pan No. should be in ABCDE1234F format.</small>
+        </div>
+      </div>
+
+      <input [disabled]="updateForm.form.invalid" type="submit" value="Update" class="btn btn-primary">
+
+    </form>
+  </div>
+ </div>
+ </div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+  <a class="navbar-brand" href="./assets/aboutUs.html">About Us</a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="./assets/contactUs.html">Contact Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./assets/feedback.html">Feedback</a>
+    </li>
+  </ul>
+</nav>

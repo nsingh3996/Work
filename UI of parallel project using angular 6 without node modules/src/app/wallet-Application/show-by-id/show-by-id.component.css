@@ -1,0 +1,39 @@
+.subBar a{
+    color: darkblue;
+    /* font-weight: bold; */
+    padding: 20px;
+    text-decoration: none;
+}
+.mainbar{
+   
+    padding: 20px;
+}
+.mainbar h2{
+    color: maroon;
+    font-weight: bolder;
+}
+.mainbar a{
+    color: darkblue;
+    font-weight: bolder;
+}
+.customer{
+    padding: 20px;
+    margin-top: 20px;
+}
+.customer h3{
+    padding: 10px;
+    text-align: center;
+}
+.customer p{
+    padding: 5px;
+}
+.customer span{
+    font-weight: bolder;
+}
+
+.goodhead{
+	height:auto;
+	min-height:100vh;
+	background-size:cover;
+	background-position:center;
+}

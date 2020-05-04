@@ -1,0 +1,31 @@
+ <div class="moneyTransfer goodhead" style="background-image: url(./assets/transferImage.jpg);">
+  <h4><img src="./assets/wallet.jpg" width="100" height="100"/> Transfer Money to another account</h4>
+ <div class="container">
+  
+ <div class="col-md-6 offset-md-3 transfer border border-success rounded shadow p-4 mb-4 bg-white">
+    
+    <form (ngSubmit)="makeTransfer(account1.value,amount1.value)">
+      <div class="form-group">
+        <label class="form-label">Enter the beneficiary account number:</label>
+        <input  type="text" name="account" class="form-control" #account1>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Enter the amount:</label>
+        <input  type="number" name="amount" class="form-control" #amount1>
+      </div>
+      <input type="submit" class="btn btn-primary" value="Transfer">
+    </form>
+  </div>
+</div>
+</div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+  <a class="navbar-brand" href="./assets/aboutUs.html">About Us</a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="./assets/contactUs.html">Contact Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./assets/feedback.html">Feedback</a>
+    </li>
+  </ul>
+</nav>

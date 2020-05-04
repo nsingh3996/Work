@@ -1,0 +1,104 @@
+<div class="Header1 goodhead" style="background-image: url(./assets/Background.jpeg);">
+  <h4><img src="./assets/wallet.jpg" width="100" height="100"/><strong> MAITREE BANK </strong></h4>
+ 
+  
+  
+<div class="container col-md-5 offset-md-3 transfer border border-danger rounded shadow p-4 mb-4 bg-white">
+    <a (click)="showSignup(signup1,login1)">New User Register Here</a>
+    <a (click)="showLogin(signup1,login1)" style="border-right: 1px solid black; padding-right: 10px;">Log In</a>
+  <form (ngSubmit)="validationForm(username1.value,password1.value)" #login1>
+    <div class="form-group">
+      <label class="form-label">Username</label>
+      <input type="text" class="form-control" name="username" #username1> 
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" #password1> 
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Log In" >
+  </form>
+
+   <form #signup1 #bankForm="ngForm" id="signup" (ngSubmit)="makeAccount(account2.value,name2.value,pan2.value,aadhar2.value,phone2.value,amount2.value,username2.value,password2.value)" novalidate>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="accId" name="accountNumber" class="form-control" required [class.is-invalid]="account2.invalid && account2.touched" #account2="ngModel" disabled hidden>
+      <small [class.d-none]="account2.valid || account2.untouched" class="text-danger">Account Number is mandatory.</small>
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label">Enter the Customer Name</label>
+      <input type="text" [(ngModel)]="name" class="form-control" name="name" required pattern="^[A-Z][a-z]+([\ A-Za-z]+)*" [class.is-invalid]="name2.invalid && name2.touched" #name2="ngModel">
+      <div *ngIf="name2.errors && (name2.invalid && name2.touched)">
+        <small class="text-danger" *ngIf="name2.errors.required">Name is mandatory.</small><br/>
+        <small class="text-danger" *ngIf="name2.errors.pattern">Only Alphabets allowed.<br/>First letter of the name should be Uppercase.</small>
+      </div> 
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Enter the Pan Number</label>
+      <input type="text" [(ngModel)]="pan" class="form-control" name="pan" required pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" [class.is-invalid]="pan2.invalid && pan2.touched" #pan2="ngModel">
+      <div *ngIf="pan2.errors && (pan2.invalid && pan2.touched)">
+        <small class="text-danger" *ngIf="pan2.errors.required">Pan No. is mandatory.</small><br/>
+        <small class="text-danger" *ngIf="pan2.errors.pattern">Pan No. should be in ABCDE1234F format.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Enter the Aadhar Number</label>
+      <input type="text" [(ngModel)]="aadhar" class="form-control" name="aadharNumber" required minlength="12" maxlength="12" pattern="^[1-9][0-9]*" [class.is-invalid]="aadhar2.invalid && aadhar2.touched" #aadhar2="ngModel">
+      <div *ngIf="aadhar2.errors && (aadhar2.invalid && aadhar2.touched)">
+      <small class="text-danger" *ngIf="aadhar2.errors.required">Aadhar Number is mandatory.</small><br/>
+      <small class="text-danger" *ngIf="aadhar2.errors.minlength">Invalid Aadhar Number. Aadhar Number should be 12 digit.</small><br/>
+      <small class="text-danger" *ngIf="aadhar2.errors.pattern">Invalid Aadhar Number. Aadhar number should only contain numbers and should not start with 0.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Enter the Phone Number</label>
+      <input type="text" [(ngModel)]="phone" class="form-control" name="phoneNumber" required pattern="^[1-9]{1}[0-9]{9}$" [class.is-invalid]="phone2.invalid && phone2.touched" #phone2="ngModel">
+      <div *ngIf="phone2.errors && (phone2.invalid && phone2.touched)">
+        <small class="text-danger" *ngIf="phone2.errors.required">Phone No. is mandatory.</small><br/>
+        <small class="text-danger" *ngIf="phone2.errors.pattern">Phone No. should be of exactly ten digits and first no. should not be 0.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Enter the Amount</label>
+      <input type="number" [(ngModel)]="amount" class="form-control" name="amount"  [class.is-invalid]="amount2.invalid && amount2.touched" #amount2="ngModel">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Enter the Username</label>
+      <input type="text" [(ngModel)]="username" class="form-control" name="username" required [class.is-invalid]="username2.invalid && username2.touched" #username2="ngModel">
+      <small [class.d-none]="username2.valid || username2.untouched" class="text-danger">Username is mandatory.</small>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Enter the Password</label>
+      <input type="password" [(ngModel)]="password" class="form-control" name="password" required minlength="8" maxlength="16" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" [class.is-invalid]="password2.invalid && password2.touched" #password2="ngModel">
+      <div *ngIf="password2.errors && (password2.invalid && password2.touched)">
+        <small class="text-danger" *ngIf="password2.errors.required">Password is mandatory.</small><br/>
+        <small class="text-danger" *ngIf="password2.errors.minlength">Password should be greater than or equal to 8 characters.</small><br/>
+        <small class="text-danger" *ngIf="password2.errors.maxlength">Password should be less than or equal to 16 characters.</small><br/>
+        <small class="text-danger" *ngIf="password2.errors.pattern">Password should contain atleast one uppercase letter, one lowercase letter, one number and a special character.</small>
+      </div>
+    </div>
+
+    <input [disabled]="bankForm.form.invalid" type="submit" class="btn btn-primary" value="Register">
+  </form> 
+</div>
+</div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+  <a class="navbar-brand" href="./assets/aboutUs.html">About Us</a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="./assets/contactUs.html">Contact Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./assets/feedback.html">Feedback</a>
+    </li>
+  </ul>
+</nav>
+
+
